@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 
 struct Node
@@ -85,6 +86,32 @@ void printBST(Node *root, int level = 0)
     {
         return;
     }
+
+    queue<Node *> q;
+    q.push(root);
+    while (!q.empty())
+    {
+        int levelSize = q.size();
+
+        for (int i = 0; i < levelSize; i++)
+        {
+            Node *node = q.front();
+            cout << node->key << " ";
+            q.pop();
+
+            if (node->left != NULL)
+            {
+                q.push(node->left);
+            }
+
+            if (node->right != NULL)
+            {
+                q.push(node->right);
+            }
+        }
+
+        cout << endl;
+    }
 }
 
 int main()
@@ -119,6 +146,8 @@ int main()
     getNumberOfLeaves(root, &leavesCount);
 
     cout << "=======RESULTS=======\n";
+    cout << "Here's your tree: " << endl;
+    printBST(root);
     cout << "Your BST has " << nodesCount << " nodes." << endl;
     cout << "Your BST has " << leavesCount << " leaves." << endl;
 
