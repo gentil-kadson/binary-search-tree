@@ -82,35 +82,12 @@ void getNumberOfLeaves(Node *root, int *count)
 
 void printBST(Node *root, int level = 0)
 {
-    if (root == NULL)
+    if (root != NULL)
     {
-        return;
-    }
-
-    queue<Node *> q;
-    q.push(root);
-    while (!q.empty())
-    {
-        int levelSize = q.size();
-
-        for (int i = 0; i < levelSize; i++)
-        {
-            Node *node = q.front();
-            cout << node->key << " ";
-            q.pop();
-
-            if (node->left != NULL)
-            {
-                q.push(node->left);
-            }
-
-            if (node->right != NULL)
-            {
-                q.push(node->right);
-            }
-        }
-
-        cout << endl;
+        printBST(root->right, level + 1);
+        string space(4 * level, ' ');
+        cout << space << "->" << root->key << endl;
+        printBST(root->left, level + 1);
     }
 }
 
