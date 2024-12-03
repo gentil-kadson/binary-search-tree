@@ -9,6 +9,7 @@ int main()
     int leavesCount = 0;
     int aux = 0;
     Node *root = NULL;
+    int nodeKey;
 
     cout << "How many nodes do you want your BST to have? ";
     cin >> numberOfNodes;
@@ -38,6 +39,14 @@ int main()
     printBST(root);
     cout << "Your BST has " << nodesCount << " nodes." << endl;
     cout << "Your BST has " << leavesCount << " leaves." << endl;
+
+    cout << "Which node do you wish to delete? ";
+    cin >> nodeKey;
+    removeNode(nodeKey, root);
+
+    cout << "======RESULTS======" << endl;
+    cout << "Here's your tree now: " << endl;
+    printBST(root);
 
     return 0;
 }

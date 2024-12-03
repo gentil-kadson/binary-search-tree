@@ -84,16 +84,55 @@ Node *locateMin(Node *root)
 {
     Node *min = root->left;
     Node *aux = NULL;
+    cout << "Olha o min aqui ó: " << min->key << endl;
 
-    while (min != NULL)
-    {
-        aux = min;
-        min = min->left;
-    }
     if (root->left == NULL && root->right != NULL)
     {
         aux = root->right;
     }
+    else
+    {
+        while (min != NULL)
+        {
+            aux = min;
+            min = min->left;
+        }
+    }
 
     return aux;
+}
+
+void removeNode(int key, Node *&root)
+{
+    Node *aux;
+    if (root == NULL)
+    {
+        return;
+    }
+    else if (key < root->key)
+    {
+        removeNode(key, root->left);
+    }
+    else if (key > root->key)
+    {
+        removeNode(key, root->right);
+    }
+    else if (root->left != NULL && root->right != NULL)
+    {
+        aux = locateMin(root->right);
+        root->key = aux->key;
+        removeNode(root->key, root->right);
+    }
+    else
+    {
+        aux = root;
+        if (root->left != NULL)
+        {
+            root = root->left;
+        }
+        else
+        {
+            root = root->right;
+        }
+    }
 }
