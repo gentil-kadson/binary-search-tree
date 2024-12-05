@@ -82,7 +82,7 @@ void printBST(Node *root, int level)
 
 Node *locateMin(Node *root)
 {
-    Node *min = root->left;
+    Node *min = root;
     Node *aux = NULL;
 
     while (min != NULL)
@@ -131,7 +131,7 @@ void removeNode(int key, Node *&root)
 
 void preOrder(Node *root)
 {
-    cout << root->key;
+    cout << root->key << " ";
     if (root->left != NULL)
     {
         preOrder(root->left);
@@ -148,7 +148,7 @@ void symmetricalOrder(Node *root)
     {
         symmetricalOrder(root->left);
     }
-    cout << root->key;
+    cout << root->key << " ";
     if (root->right != NULL)
     {
         symmetricalOrder(root->right);
@@ -165,7 +165,7 @@ void postOrder(Node *root)
     {
         postOrder(root->right);
     }
-    cout << root->key;
+    cout << root->key << " ";
 }
 
 void showOrderByLevel(Node *root)

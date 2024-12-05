@@ -34,7 +34,7 @@ int main()
     getNumberOfNodes(root, &nodesCount);
     getNumberOfLeaves(root, &leavesCount);
 
-    cout << "=======RESULTS=======\n";
+    cout << "==============RESULTS==============\n";
     cout << "Here's your tree: " << endl;
     printBST(root);
     cout << "Your BST has " << nodesCount << " nodes." << endl;
@@ -44,13 +44,22 @@ int main()
     cin >> nodeKey;
     removeNode(nodeKey, root);
 
-    cout << "======RESULTS======" << endl;
+    cout << "==============RESULTS==============" << endl;
     cout << "Here's your tree now: " << endl;
     printBST(root);
 
     cout << "==============TREE PRINTING ORDERS==============" << endl;
     cout << "By level:" << endl;
     showOrderByLevel(root);
+    cout << endl;
+
+    cout << "Pre Order: " << endl;
+    preOrder(root);
+    cout << endl;
+
+    cout << "Post Order: " << endl;
+    postOrder(root);
+    cout << endl;
 
     return 0;
 }
