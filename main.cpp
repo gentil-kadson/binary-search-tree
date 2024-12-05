@@ -48,5 +48,9 @@ int main()
     cout << "Here's your tree now: " << endl;
     printBST(root);
 
+    cout << "==============TREE PRINTING ORDERS==============" << endl;
+    cout << "By level:" << endl;
+    showOrderByLevel(root);
+
     return 0;
 }

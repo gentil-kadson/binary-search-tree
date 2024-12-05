@@ -29,3 +29,5 @@ void preOrder(Node *root);
 void symmetricalOrder(Node *root);
 
 void postOrder(Node *root);
+
+void showOrderByLevel(Node *root);

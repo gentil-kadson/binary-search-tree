@@ -84,19 +84,11 @@ Node *locateMin(Node *root)
 {
     Node *min = root->left;
     Node *aux = NULL;
-    cout << "Olha o min aqui ó: " << min->key << endl;
 
-    if (root->left == NULL && root->right != NULL)
+    while (min != NULL)
     {
-        aux = root;
-    }
-    else
-    {
-        while (min != NULL)
-        {
-            aux = min;
-            min = min->left;
-        }
+        aux = min;
+        min = min->left;
     }
 
     return aux;
@@ -174,4 +166,25 @@ void postOrder(Node *root)
         postOrder(root->right);
     }
     cout << root->key;
+}
+
+void showOrderByLevel(Node *root)
+{
+    queue<Node *> queue;
+    queue.push(root);
+
+    while (!queue.empty())
+    {
+        Node *node = queue.front();
+        cout << node->key << " ";
+        queue.pop();
+        if (node->left != NULL)
+        {
+            queue.push(node->left);
+        }
+        if (node->right != NULL)
+        {
+            queue.push(node->right);
+        }
+    }
 }
