@@ -61,5 +61,9 @@ int main()
     postOrder(root);
     cout << endl;
 
+    cout << "Symmetrical: " << endl;
+    symmetricalOrder(root);
+    cout << endl;
+
     return 0;
 }
