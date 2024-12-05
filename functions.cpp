@@ -88,7 +88,7 @@ Node *locateMin(Node *root)
 
     if (root->left == NULL && root->right != NULL)
     {
-        aux = root->right;
+        aux = root;
     }
     else
     {
@@ -135,4 +135,43 @@ void removeNode(int key, Node *&root)
             root = root->right;
         }
     }
+}
+
+void preOrder(Node *root)
+{
+    cout << root->key;
+    if (root->left != NULL)
+    {
+        preOrder(root->left);
+    }
+    if (root->right != NULL)
+    {
+        preOrder(root->right);
+    }
+}
+
+void symmetricalOrder(Node *root)
+{
+    if (root->left != NULL)
+    {
+        symmetricalOrder(root->left);
+    }
+    cout << root->key;
+    if (root->right != NULL)
+    {
+        symmetricalOrder(root->right);
+    }
+}
+
+void postOrder(Node *root)
+{
+    if (root->left != NULL)
+    {
+        postOrder(root->left);
+    }
+    if (root->right != NULL)
+    {
+        postOrder(root->right);
+    }
+    cout << root->key;
 }

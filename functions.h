@@ -23,3 +23,9 @@ void printBST(Node *root, int level = 0);
 Node *locateMin(Node *root);
 
 void removeNode(int key, Node *&root);
+
+void preOrder(Node *root);
+
+void symmetricalOrder(Node *root);
+
+void postOrder(Node *root);
