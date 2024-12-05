@@ -17,7 +17,6 @@ int main()
 
     while (aux < numberOfNodes)
     {
-        int nodeKey;
         cout << "input node " << aux + 1 << ": ";
         cin >> nodeKey;
         Node *foundNode = search(root, nodeKey);
