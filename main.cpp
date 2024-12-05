@@ -10,6 +10,7 @@ int main()
     int aux = 0;
     Node *root = NULL;
     int nodeKey;
+    int printOrderOption;
 
     cout << "How many nodes do you want your BST to have? ";
     cin >> numberOfNodes;
@@ -48,22 +49,50 @@ int main()
     cout << "Here's your tree now: " << endl;
     printBST(root);
 
-    cout << "==============TREE PRINTING ORDERS==============" << endl;
-    cout << "By level:" << endl;
-    showOrderByLevel(root);
-    cout << endl;
+    cout << "==============TREE PRINTING ORDER==============" << endl;
+    cout << "Which printing method do you want to use?" << endl;
+    cout << "[1] By level" << endl;
+    cout << "[2] Pre Order" << endl;
+    cout << "[3] Post Order" << endl;
+    cout << "[4] Symmetrical" << endl;
+    while (true)
+    {
+        cin >> printOrderOption;
+        if (printOrderOption != 1 && printOrderOption != 2 && printOrderOption != 3 && printOrderOption != 4)
+        {
+            cout << "This is not a valid input value." << endl;
+        }
+        else
+        {
+            break;
+        }
+    }
 
-    cout << "Pre Order: " << endl;
-    preOrder(root);
-    cout << endl;
-
-    cout << "Post Order: " << endl;
-    postOrder(root);
-    cout << endl;
-
-    cout << "Symmetrical: " << endl;
-    symmetricalOrder(root);
-    cout << endl;
+    switch (printOrderOption)
+    {
+    case 1:
+        cout << "By level:" << endl;
+        showOrderByLevel(root);
+        cout << endl;
+        break;
+    case 2:
+        cout << "Pre Order: " << endl;
+        preOrder(root);
+        cout << endl;
+        break;
+    case 3:
+        cout << "Post Order: " << endl;
+        postOrder(root);
+        cout << endl;
+        break;
+    case 4:
+        cout << "Symmetrical: " << endl;
+        symmetricalOrder(root);
+        cout << endl;
+        break;
+    default:
+        break;
+    }
 
     return 0;
 }
